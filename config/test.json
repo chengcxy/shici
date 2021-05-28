@@ -1,0 +1,36 @@
+{
+  "web": {
+    "host":"0.0.0.0",
+    "port": ":8088",
+    "mode":"release",
+    "other_modes":"test/debug"
+  },
+  "log": {
+      "log_path": "/Users/chengxinyao/WebProjects/logs/",
+      "level": "INFO",
+      "log_formatter": "%(asctime)s - %(filename)s -%(funcName)s - %(lineno)d - %(levelname)s - %(message)s"
+  },
+  "roboter": {
+      "token": "xxrtgdff",
+      "atMobiles": [
+          "188****8263"
+      ],
+      "isAtAll": false,
+      "roboter_type": "dingding",
+      "hook_keyword": "任务报警"
+  },
+  "redis": {
+      "host": "localhost",
+      "port": 6379,
+      "db": 1,
+      "password": "123456"
+  },
+  "mysql": {
+    "host": "localhost",
+    "user": "root",
+    "password": "123456",
+    "db": "spider",
+    "port": 3306,
+    "charset": "utf8"
+ }
+}

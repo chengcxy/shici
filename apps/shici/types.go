@@ -22,7 +22,7 @@ from spider.dynastys
 
 //获取诗人
 var BASE_POETER_QUERY = `
-select dynasty_id,dynasty
+select dynasty_id,poeter_id,poeter_name,poeter_desc
 from spider.poeters
 where dynasty_id=%d
 `

@@ -1,13 +1,13 @@
-## 廖雪峰-中华诗词网站抓取入库后 使用go开发api
+# 廖雪峰-中华诗词网站抓取入库后 使用go开发api
 
 
-## 修改config/test.json
+## 1.1 修改config/test.json
 
 
-## 数据库表参见爬虫项目
+## 1.2 数据库表参见爬虫项目
 [中华诗词爬虫](https://github.com/chengcxy/scrapy_spider/tree/master/tangshi)
 
-## 运行服务
+## 1.3 运行服务
 
 ```
 go build
@@ -18,6 +18,25 @@ $project_path为项目路径
 -e test/dev/prod.json config目录下的配置文件名称
 
 ./shici -c $project_path/config -e test
+
+运行成功输出:
+2021/05/28 13:19:31 run in port:  :8088 WebMode: release
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+2021/05/28 13:19:31 find mapmode release
+
+```
+
+## 1.4 打开新终端 curl api
+
+```
+curl http://localhost:8088/api/shici/v1/dynastys/
+
+response如下:
+{"success":true,"code":200,"msg":"获取数据成功","data":{"currentPage":1,"datas":[{"dynasty":"先秦","dynasty_id":"72057594037927936"},{"dynasty":"汉代","dynasty_id":"144115188075855872"},{"dynasty":"三国两晋","dynasty_id":"216172782113783808"},{"dynasty":"南北朝","dynasty_id":"288230376151711744"},{"dynasty":"隋代","dynasty_id":"360287970189639680"},{"dynasty":"唐代","dynasty_id":"432345564227567616"},{"dynasty":"宋代","dynasty_id":"504403158265495552"},{"dynasty":"元代","dynasty_id":"576460752303423488"},{"dynasty":"明代","dynasty_id":"648518346341351424"},{"dynasty":"清代","dynasty_id":"720575940379279360"},{"dynasty":"近现代","dynasty_id":"792633534417207296"}],"pageSize":500000,"totalCount":11}}
+
 ```
 
 

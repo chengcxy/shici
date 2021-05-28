@@ -61,7 +61,7 @@ func GetDynastyPoeters(c *gin.Context) {
 func GetPoeterPoems(c *gin.Context) {
     currentPage := 1
 	pageSize := 50
-	poeter_id := com.StrTo(c.Param("poeterId")).MustInt()
+	poeter_id := com.StrTo(c.Param("poeter_id")).MustInt()
 	if _currentPage := c.Query("currentPage");_currentPage !=""{
 		currentPage = com.StrTo(_currentPage).MustInt()
 	}

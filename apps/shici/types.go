@@ -15,20 +15,13 @@ type Response struct {
 var GroupUrl string = "/api/shici/v1/"
 
 
-//获取朝代
+//获取所有朝代
 var BASE_DYNASTY_QUERY = `
 select dynasty_id,dynasty
 from spider.dynastys
 `
 
-//获取单个朝代
-var QUERY_DYNASTY_DETAIL = `
-select dynasty_id,dynasty
-from spider.dynastys
-where dynasty_id=%d
-`
-
-//获取诗人
+//获取某个朝代下的诗人
 var BASE_POETER_QUERY = `
 select dynasty_id,poeter_id,poeter_name,poeter_desc
 from spider.poeters

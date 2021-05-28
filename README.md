@@ -4,6 +4,9 @@
 ## 修改config/test.json
 
 
+## 数据库表参见爬虫项目
+[中华诗词爬虫](https://github.com/chengcxy/scrapy_spider/tree/master/tangshi)
+
 ## 运行服务
 
 ```

@@ -16,33 +16,26 @@ var GroupUrl string = "/api/shici/v1/"
 
 
 //获取所有朝代
-var BASE_DYNASTY_QUERY = `
+var QUERY_DYNASTYS = `
 select dynasty_id,dynasty
 from spider.dynastys
 `
 
 //获取某个朝代下的诗人
-var BASE_POETER_QUERY = `
+var QUERY_DYNASTY_POETERS = `
 select dynasty_id,poeter_id,poeter_name,poeter_desc
 from spider.poeters
 where dynasty_id=%d
 `
 
-//获取单个诗人
-var QUERY_POETER_DETAIL = `
-select dynasty_id,poeter_id,poeter_name,poeter_desc
-from spider.poeters
-where poeter_id=%d
-`
 
-
-//获取作品
-var BASE_POEM_QUERY = `
+//获取某个诗人下的作品
+var QUERY_POETER_POEMS = `
 select a.*,b.poeter_name,b.poeter_desc,c.dynasty
 from (
 	select poem_id,poem_name,dynasty_id,poeter_id,contents
 	from spider.china_poems 
-	where dynasty_id=%d and poeter_id=%d
+	where poeter_id=%d
 ) as a
 left join  spider.poeters as b on a.poeter_id=b.poeter_id
 left join spider.dynastys as c on a.dynasty_id=c.dynasty_id

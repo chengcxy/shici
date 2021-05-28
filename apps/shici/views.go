@@ -44,6 +44,22 @@ func GetPoems(c *gin.Context) {
 	return 
 }
 
+//查询单个作品
+func GetPoem(c *gin.Context) {
+	poem_id := com.StrTo(c.Param("poem_id")).MustInt()
+	query := fmt.Sprintf(QUERY_POEM_DETAIL,poem_id)
+	datas,_,_ := apps.Db.Query(query)
+	result := datas[0]
+	c.JSON(http.StatusOK, Response{
+		Success:true,
+		Code: 200,
+		Msg: "获取数据成功",
+		Data: result,
+	})
+	return 
+}
+
+
 
 //查询所有朝代
 func GetDynastys(c *gin.Context) {
@@ -61,6 +77,20 @@ func GetDynastys(c *gin.Context) {
 	return 
 }
 
+//查询单个朝代
+func GetDynasty(c *gin.Context) {
+	dynasty_id := com.StrTo(c.Param("dynasty_id")).MustInt()
+	query := fmt.Sprintf(QUERY_DYNASTY_DETAIL,dynasty_id)
+	datas,_,_ := apps.Db.Query(query)
+	result := datas[0]
+	c.JSON(http.StatusOK, Response{
+		Success:true,
+		Code: 200,
+		Msg: "获取数据成功",
+		Data: result,
+	})
+	return 
+}
 
 
 //分页查询诗人
@@ -81,6 +111,21 @@ func GetPoeters(c *gin.Context) {
 	query := fmt.Sprintf(BASE_POETER_QUERY,dynasty_id)
 	result := apps.Query(query,order_by,currentPage,pageSize)
 	result["totalCount"] = com.StrTo(result["totalCount"].(string)).MustInt()
+	c.JSON(http.StatusOK, Response{
+		Success:true,
+		Code: 200,
+		Msg: "获取数据成功",
+		Data: result,
+	})
+	return 
+}
+
+//查询单个朝代
+func GetPoeter(c *gin.Context) {
+	poeter_id := com.StrTo(c.Param("poeter_id")).MustInt()
+	query := fmt.Sprintf(QUERY_POETER_DETAIL,poeter_id)
+	datas,_,_ := apps.Db.Query(query)
+	result := datas[0]
 	c.JSON(http.StatusOK, Response{
 		Success:true,
 		Code: 200,

@@ -1,8 +1,8 @@
 {
   "web": {
     "host":"0.0.0.0",
-    "port": ":8088",
-    "mode":"release",
+    "port": ":9008",
+    "mode":"debug",
     "other_modes":"test/debug"
   },
   "log": {
@@ -28,7 +28,7 @@
   "mysql": {
     "host": "localhost",
     "user": "root",
-    "password": "123456",
+    "password": "admin2016",
     "db": "spider",
     "port": 3306,
     "charset": "utf8"

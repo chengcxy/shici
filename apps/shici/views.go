@@ -69,7 +69,7 @@ func GetPoeterPoems(c *gin.Context) {
 		pageSize = com.StrTo(_pageSize).MustInt()
 	}
 	order_by := " order by a.poem_id "
-	query := fmt.Sprintf(QUERY_POETER_POEMS,dynasty_id,poeter_id)
+	query := fmt.Sprintf(QUERY_POETER_POEMS,poeter_id)
 	result := apps.Query(query,order_by,currentPage,pageSize)
 	result["totalCount"] = com.StrTo(result["totalCount"].(string)).MustInt()
 	c.JSON(http.StatusOK, Response{

@@ -89,8 +89,6 @@ func init(){
 	log.Println("run in port: ",WebPort,"WebMode:",WebMode)
 	apps.InitDb(conf)
 	apps.InitRoboter(conf)
-
-
 }
 
 func main(){

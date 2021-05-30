@@ -9,18 +9,16 @@ export function getNavList() {
 }
 
 
-
-
 export function getDynastyPoeters(params) {
   return request({
-      url: '/api/shici/v1/dynasty/' + params.dynasty_id,
-      method: 'get'
+      url: '/api/shici/v1/dynasty/' + params.dynasty_id + "?currentPage="+params.currentPage+"&pageSize="+params.pageSize,
+      method: 'get',
   })
 }
 
 export function getPoeterPoems(params) {
   return request({
-      url: '/api/shici/v1/poeter/' + params.poeter_id,
+      url: '/api/shici/v1/poeter/' + params.poeter_id+ "?currentPage="+params.currentPage+"&pageSize="+params.pageSize,
       method: 'get'
   })
 }

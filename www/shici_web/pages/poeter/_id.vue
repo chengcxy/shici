@@ -128,4 +128,8 @@ export default {
   white-space: nowrap;
   color: #444444;
 }
+.pagebox {
+  margin: 20px;
+  text-align: right;
+}
 </style>

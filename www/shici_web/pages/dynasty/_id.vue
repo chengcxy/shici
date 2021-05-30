@@ -111,9 +111,6 @@ export default {
         this.currentPage = response.currentPage;
         this.pageSize = response.pageSize;
       });
-
-
-
     },
   },
 };

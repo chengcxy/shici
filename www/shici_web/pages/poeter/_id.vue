@@ -13,15 +13,25 @@
 
       </div>
 
-      <!-- <template>
-      <div class="author-item">
-        <span class="author alink" style="margin-right:15px">李白</span>
-        <span>
-          丁仙（一作先）芝，曲阿人。登开元进士第，为馀杭尉。 诗十四首。</span
-        >
+      <!--分页-->
+      <div class="pagebox">
+        <el-pagination
+          background
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage"
+          :page-sizes="[20,50,100]"
+          :page-size="pageSize"
+          layout="total, sizes, prev, pager, next"
+          :total="total"
+        ></el-pagination>
       </div>
-      </template> -->
+
+
+
     </div>
+
+
   </div>
 </template>
 
@@ -37,6 +47,9 @@ export default {
     return {
       poeter_id: "",
       poems: [],
+      total:0,
+      currentPage: 1,
+      pageSize:50,
     };
   },
   mounted() {
@@ -45,11 +58,39 @@ export default {
   },
   methods: {
     ClickgetPoeterPoems() {
-       let params = { poeter_id: this.poeter_id };
+       let params = {
+          poeter_id: this.poeter_id,
+         currentPage: this.currentPage,
+          pageSize: this.pageSize
+      };
        getPoeterPoems(params).then((res) => {
         var response = res.data;
         this.poems = response.datas;
+        this.total = response.totalCount;
+        this.currentPage = response.currentPage;
+        this.pageSize = response.pageSize;
 
+      });
+    },
+
+
+    handleSizeChange(size) {
+      this.pageSize = size;
+    },
+    handleCurrentChange(currentPage) {
+      this.currentPage = currentPage;
+
+      let params ={
+          poeter_id: this.poeter_id ,
+          currentPage: this.currentPage,
+          pageSize: this.pageSize,
+       };
+      getPoeterPoems(params).then((res) => {
+        var response = res.data;
+        this.poeters = response.datas;
+        this.total = response.totalCount;
+        this.currentPage = response.currentPage;
+        this.pageSize = response.pageSize;
       });
     },
     ToPoemDetail(item){

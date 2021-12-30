@@ -13,7 +13,7 @@
         <h3 style="margin:15px 0">{{ poemItem.dynasty}} · {{poemItem.poeter_name}}</h3>
 
         <div >
-          <p  v-for="item,index in contents" :key="index" style="margin:10px 0;color:#444"> {{ item }} </p>
+          <p class="contents" v-for="item,index in contents" :key="index" style="margin:10px 0;color:#444"> {{ item }} </p>
           </div>
       </div>
 
@@ -70,5 +70,8 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #444444;
+}
+.contents {
+  
 }
 </style>

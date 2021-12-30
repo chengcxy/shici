@@ -1,3 +1,5 @@
+github.com/766b/go-outliner v0.0.0-20180511142203-fc6edecdadd7 h1:cJXisB2yAM61AzMutv7X+KM8F3xVLxGH99S8VmaSlps=
+github.com/766b/go-outliner v0.0.0-20180511142203-fc6edecdadd7/go.mod h1:1SzhThoS5lcKfE4IFOLQJ04WCmFpaAiPe8H9yqXyYSU=
 github.com/chengcxy/gotools v0.0.0-20210415050122-08465014b064 h1:Jbny55j9eMO7EcR75CiGsQZZ5bwJfOsbhmcFJVmG0jk=
 github.com/chengcxy/gotools v0.0.0-20210415050122-08465014b064/go.mod h1:AxDPVVIQtl2xG6eZUBOWlyF6pjpExYI2eEDjJ0KE0B0=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
